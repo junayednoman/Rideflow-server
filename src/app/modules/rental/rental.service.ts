@@ -159,8 +159,9 @@ const getAllRentalsFromDb = async (
     if (!userInfo) {
       throw new AppError(httpStatus.UNAUTHORIZED, 'Unauthorized!');
     }
-    query.userId = userInfo?._id;
+    query.userId = userInfo?._id.toString();
   }
+
   const bikeQuery = new QueryBuilder(
     RentalModel.find()
       .select('-createdAt -updatedAt -__v')

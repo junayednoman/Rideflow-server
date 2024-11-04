@@ -33,6 +33,7 @@ export const initiatePayment = async (paymentInfo: TPaymentInfo) => {
     success_url,
     fail_url,
   } = paymentInfo;
+
   const data = {
     total_amount,
     currency,
