@@ -116,8 +116,10 @@ const returnBike = async (id: string, rentalEndTime: string) => {
     const updateDoc = {
       isReturned: true,
       returnTime: rentalEndTime,
-      totalCost: totalCost.toFixed(3),
+      totalCost: totalCost.toFixed(2),
+      isPaid: true
     };
+
     const result = await RentalModel.findOneAndUpdate({ _id: id }, updateDoc, {
       new: true,
       session,
